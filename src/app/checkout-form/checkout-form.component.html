@@ -1,0 +1,47 @@
+<div  class="my-container" [hidden]="submitted">
+<form #contactForm="ngForm" (ngSubmit)="submit(contactForm.value)">
+    
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">First Name</label>
+        <input type="name"  ngModel name="finame"class="form-control" id="InputName" aria-describedby="emailHelp" placeholder="Enter First Name">
+        
+      </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        <input type="LastName"[(ngModel)]="lname" name="laname" class="form-control" id="LastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+        
+      </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" [(ngModel)]="msg" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" Enter email ">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password"  ngModel name="password"class="form-control" id="exampleInputPassword1" placeholder="password">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <p>Hello {{lname}}</p>
+    <p>{{msg}}</p>
+    
+  </form>
+  </div>
+
+  <div class="sp" [hidden]="!submitted">
+  <div  class="jumbotron text-center">
+    <h1 class="display-3">Thank You {{Contact.firstName}} for ordering the product</h1>
+    <p class="lead"><strong>Please check your email</strong> {{Contact.email}} for further instructions on how to complete your account setup.</p>
+    <hr>
+    <p>
+      Having trouble? <a href="">Contact us</a>
+    </p>
+    <p class="lead">
+      <a routerLink="/"class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>
+    </p>
+  </div>
+  </div>
+
